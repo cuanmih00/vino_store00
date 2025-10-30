@@ -1,145 +1,254 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vino_Store Portofolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="https://files.catbox.moe/b109y7.jpg" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-    }
-
-    header {
-      padding: 30px;
-    }
-
-    header img {
-      width: 120px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 25px #00bfff;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: #00bfff;
-      text-shadow: 0 0 10px #0077ff;
-    }
-
-    h2 {
-      color: #00bfff;
-      border-bottom: 2px solid #0077ff;
-      display: inline-block;
-      padding-bottom: 4px;
-    }
-
-    section {
-      margin: 40px auto;
-      width: 90%;
-      max-width: 600px;
-    }
-
-    .skill {
-      text-align: left;
-      margin: 10px 0;
-    }
-
-    .bar {
-      background: #222;
-      border-radius: 10px;
-      overflow: hidden;
-      height: 10px;
-    }
-
-    .bar div {
-      height: 10px;
-      background: linear-gradient(90deg, #00bfff, #0077ff);
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      margin: 10px 0;
-      background: #111;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 0 10px #0077ff44;
-    }
-
-    .btn-wa {
-      display: inline-block;
-      background: linear-gradient(90deg, #00bfff, #0077ff);
-      color: white;
-      padding: 12px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 15px #0077ff88;
-      transition: transform 0.2s, box-shadow 0.3s;
-    }
-
-    .btn-wa:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #00bfff;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 14px;
-      color: #aaa;
-      padding-bottom: 30px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Vino_Store - Dunia Perjualan</title>
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f0f23 0%, #1e3a8a 100%);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        nav a {
+            color: #a0c4ff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px #4a90e2;
+        }
+        
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .about h2 {
+            color: #4a90e2;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        
+        .services {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        }
+        
+        .services h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #a0c4ff;
+            font-size: 2.5em;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-item {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f0f23 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 40px rgba(74, 144, 226, 0.5);
+        }
+        
+        .service-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .service-item h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #0f0f23 0%, #1e3a8a 100%);
+            color: #fff;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        }
+        
+        .contact h2 {
+            color: #a0c4ff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1em;
+        }
+        
+        .contact input::placeholder, .contact textarea::placeholder {
+            color: #cccccc;
+        }
+        
+        .contact button {
+            background: linear-gradient(135deg, #4a90e2 0%, #1e3a8a 100%);
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+        
+        .contact button:hover {
+            background: linear-gradient(135deg, #1e3a8a 0%, #4a90e2 100%);
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%);
+            color: #a0c4ff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        /* Responsif */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="https://files.catbox.moe/b109y7.jpg" alt="Vino Store Logo" />
-    <h1>Welcome to Vino_Store</h1>
-  </header>
-
-  <section class="about">
-    <h2>👋 Tentang Saya</h2>
-    <p>Saya Berjualan All Akun Game, Top Up All Game, Nokos WA, Panel Bot, Suntik All Sosmed Dll.</p>
-  </section>
-
-  <section class="skills">
-    <h2>🧠 Keahlian</h2>
-    <div class="skill">
-      <p>Tiduran aje si</p>
-      <div class="bar"><div style="width: 100%"></div></div>
-    </div>
-  </section>
-
-  <section class="projects">
-    <h2>🚀 Proyek Saya</h2>
-    <ul>
-      <li>🌐 Website Portofolio</li>
-      <li>⚙️ Bot WhatsApp</li>
-      <li>💣 Aplikasi Ransomware</li>
-      <li>🧰 Dll</li>
-    </ul>
-  </section>
-
-  <section class="contact">
-    <h2>📞 Kontak</h2>
-    <a href="https://wa.me/6285133059139" class="btn-wa" target="_blank">
-      <i class="fab fa-whatsapp"></i> Chat via WhatsApp
-    </a>
-  </section>
-
-  <footer>
-    <p>© 2025 Vino_Store00 | Dibuat dengan Kopi, Roko dan Semangat ☕🔥</p>
-  </footer>
+    <header>
+        <h1>Vino_Store</h1>
+        <p>Dunia Perjualan - Solusi Terbaik untuk Kebutuhan Anda</p>
+        <nav>
+            <ul>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#services">Produk & Layanan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="about" class="about">
+        <h2>Tentang Vino_Store</h2>
+        <p>Vino_Store adalah toko terdepan di dunia perjualan, menyediakan produk berkualitas tinggi dan layanan pelanggan yang luar biasa. Kami berkomitmen untuk memenuhi kebutuhan Anda dengan inovasi dan kepercayaan. Dari produk sehari-hari hingga solusi khusus, kami siap membantu Anda mencapai tujuan penjualan Anda.</p>
+    </section>
+    
+    <section id="services" class="services">
+        <h2>Produk & Layanan Kami</h2>
+        <div class="service-grid">
+            <div class="service-item">
+                <img src="https://source.unsplash.com/300x200/?sales,products,dark" alt="Produk Penjualan">
+                <h3>Suntik All Sosmed</h3>
+                <p>kami menawarkan jasa suntik yang sangat efisien tepat waktu dan proses cepat seperti suntik folowers,like, komen,share,dll.</p>
+            </div>
+            <div class="service-item">
+                <img src="https://files.catbox.moe/6y6cm8.jpg" alt="Layanan Bisnis">
+                <h3>Nokos Whastapp</h3>
+                <p>Nokos Whastapp adalah (nomor kosong) siap pakai tanpa sim card.</p>
+            </div>
+            <div class="service-item">
+                <img src="https://files.catbox.moe/gu6gun.jpg"alt="E-commerce">
+                <h3>Unband Whastapp</h3>
+                <p>Memperbaiki /membuka Whastapp anda yang terblokir oleh sistem Whastapp.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2>Hubungi Kami</h2>
+        <p>silahkan hubungi saya  jika anda tertarik dengan semua produk-produk saya</p>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Nama Anda" required>
+            <input type="email" name="email" placeholder="Email Anda" required>
+            <textarea name="message" rows="5" placeholder="Pesan Anda" required></textarea>
+            <button type="submit">Kirim Pesan</button>
+        </form>
+        <p>
+          <br>Email: info@vinostore00@gmail.com<br>Telepon: +6285133059139</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Vino_Store. Semua Hak Dilindungi.</p>
+    </footer>
 </body>
-</html>
+  </html>
