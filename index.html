@@ -18,6 +18,7 @@
             color: #e0e0e0;
             background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
         }
         
         header {
@@ -26,12 +27,18 @@
             padding: 40px 20px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            animation: slideDown 1s ease-out; /* Animasi slide down untuk header */
         }
         
         header h1 {
             font-size: 3em;
             margin-bottom: 10px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+            animation: fadeInUp 1.5s ease-out 0.5s both; /* Animasi fade in dan slide up */
+        }
+        
+        header p {
+            animation: fadeInUp 1.5s ease-out 1s both; /* Animasi fade in dan slide up dengan delay */
         }
         
         nav ul {
@@ -40,6 +47,7 @@
             justify-content: center;
             gap: 30px;
             margin-top: 20px;
+            animation: fadeInUp 1.5s ease-out 1.5s both; /* Animasi fade in dan slide up dengan delay lebih lama */
         }
         
         nav a {
@@ -47,18 +55,27 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
         
         nav a:hover {
             color: #ffffff;
             text-shadow: 0 0 10px #4a90e2;
+            transform: scale(1.1); /* Animasi scale pada hover */
         }
         
         section {
             padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease; /* Transisi untuk animasi JS */
+        }
+        
+        section.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .about {
@@ -74,6 +91,11 @@
             color: #4a90e2;
             margin-bottom: 20px;
             font-size: 2.5em;
+            animation: bounceIn 1s ease-out 2.5s both; /* Animasi bounce in untuk h2 */
+        }
+        
+        .about p {
+            animation: fadeIn 1s ease-out 3s both; /* Animasi fade in untuk paragraf */
         }
         
         .services {
@@ -87,6 +109,7 @@
             margin-bottom: 30px;
             color: #a0c4ff;
             font-size: 2.5em;
+            animation: bounceIn 1s ease-out 2.5s both; /* Animasi bounce in untuk h2 */
         }
         
         .service-grid {
@@ -102,6 +125,14 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease; /* Transisi untuk animasi JS */
+        }
+        
+        .service-item.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .service-item:hover {
@@ -115,11 +146,21 @@
             object-fit: cover;
             border-radius: 10px;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-item:hover img {
+            transform: scale(1.05); /* Animasi scale untuk gambar pada hover */
         }
         
         .service-item h3 {
             color: #ffffff;
             margin-bottom: 15px;
+            animation: fadeIn 1s ease-out 0.5s both; /* Animasi fade in untuk h3 */
+        }
+        
+        .service-item p {
+            animation: fadeIn 1s ease-out 1s both; /* Animasi fade in untuk paragraf */
         }
         
         .contact {
@@ -134,42 +175,30 @@
             color: #a0c4ff;
             font-size: 2.5em;
             margin-bottom: 20px;
+            animation: bounceIn 1s ease-out 2.5s both; /* Animasi bounce in untuk h2 */
         }
         
-        .contact form {
-            max-width: 600px;
-            margin: 0 auto;
+        .contact p {
+            animation: fadeIn 1s ease-out 3s both; /* Animasi fade in untuk paragraf */
         }
         
-        .contact input, .contact textarea {
-            width: 100%;
-            padding: 15px;
-            margin: 15px 0;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            font-size: 1em;
-        }
-        
-        .contact input::placeholder, .contact textarea::placeholder {
-            color: #cccccc;
-        }
-        
-        .contact button {
+        .contact a {
+            display: inline-block;
             background: linear-gradient(135deg, #4a90e2 0%, #1e3a8a 100%);
             color: #fff;
             padding: 15px 30px;
             border: none;
             border-radius: 10px;
-            cursor: pointer;
+            text-decoration: none;
             font-size: 1.1em;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: pulse 2s infinite; /* Animasi pulse untuk tombol */
         }
         
-        .contact button:hover {
+        .contact a:hover {
             background: linear-gradient(135deg, #1e3a8a 0%, #4a90e2 100%);
             box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+            transform: scale(1.05); /* Animasi scale pada hover */
         }
         
         footer {
@@ -178,6 +207,69 @@
             text-align: center;
             padding: 20px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            animation: fadeIn 1s ease-out 5s both; /* Animasi fade in untuk footer */
+        }
+        
+        /* Keyframes untuk animasi */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
         
         /* Responsif */
@@ -197,11 +289,11 @@
 </head>
 <body>
     <header>
-        <h1>Vino_Store</h1>
+        <h1>Vino_Store00</h1>
         <p>Dunia Perjualan - Solusi Terbaik untuk Kebutuhan Anda</p>
         <nav>
-            <ul>
-                <li><a href="#about">Tentang Kami</a></li>
+            <ul>All Transaksi Open 
+                <li><a href="#about">Tentang saya</a></li>
                 <li><a href="#services">Produk & Layanan</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
@@ -209,15 +301,15 @@
     </header>
     
     <section id="about" class="about">
-        <h2>Tentang Vino_Store</h2>
-        <p>Vino_Store adalah toko terdepan di dunia perjualan, menyediakan produk berkualitas tinggi dan layanan pelanggan yang luar biasa. Kami berkomitmen untuk memenuhi kebutuhan Anda dengan inovasi dan kepercayaan. Dari produk sehari-hari hingga solusi khusus, kami siap membantu Anda mencapai tujuan penjualan Anda.</p>
+        <h2>Tentang Vino_Store00</h2>
+        <p>Vino_Store00 adalah toko terdepan di dunia perjb an, menyediakan produk berkualitas tinggi dan layanan pelanggan yang luar biasa. Kami berkomitmen untuk memenuhi kebutuhan Anda dengan inovasi dan kepercayaan. Dari produk sehari-hari hingga solusi khusus, kami siap membantu Anda mencapai tujuan penjualan Anda.</p>
     </section>
     
     <section id="services" class="services">
         <h2>Produk & Layanan Kami</h2>
         <div class="service-grid">
             <div class="service-item">
-                <img src="https://source.unsplash.com/300x200/?sales,products,dark" alt="Produk Penjualan">
+                <img src="https://files.catbox.moe/rd92ol.jpg" alt="Produk Penjualan">
                 <h3>Suntik All Sosmed</h3>
                 <p>kami menawarkan jasa suntik yang sangat efisien tepat waktu dan proses cepat seperti suntik folowers,like, komen,share,dll.</p>
             </div>
@@ -236,19 +328,67 @@
     
     <section id="contact" class="contact">
         <h2>Hubungi Kami</h2>
-        <p>silahkan hubungi saya  jika anda tertarik dengan semua produk-produk saya</p>
-        <form action="#" method="post">
-            <input type="text" name="name" placeholder="Nama Anda" required>
-            <input type="email" name="email" placeholder="Email Anda" required>
-            <textarea name="message" rows="5" placeholder="Pesan Anda" required></textarea>
-            <button type="submit">Kirim Pesan</button>
-        </form>
+        <p>silahkan hubungi saya  jika anda tertarik dan ingin membeli salah satu produk-produk saya</p>
+        <a href="https://wa.me/6285133059139?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20Anda" target="_blank">Hubungi via WhatsApp</a>
         <p>
           <br>Email: info@vinostore00@gmail.com<br>Telepon: +6285133059139</p>
     </section>
     
     <footer>
-        <p>&copy; 2023 Vino_Store. Semua Hak Dilindungi.</p>
+        <p>&copy; 2025 Vino_Store. Bismilah Sukses,Femes stay amanah.</p>
     </footer>
+
+    <script>
+        // JavaScript untuk animasi scroll-triggered menggunakan Intersection Observer
+        const observerOptions = {
+            threshold: 0.1, // Elemen harus 10% terlihat untuk memicu animasi
+            rootMargin: '0px 0px -50px 0px' // Margin untuk memicu lebih awal
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Ambil semua section dan service-item untuk diobservasi
+        const sections = document.querySelectorAll('section');
+        const serviceItems = document.querySelectorAll('.service-item');
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        serviceItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        // Tambahan: Animasi parallax sederhana untuk background (opsional)
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5; // Kecepatan parallax
+            document.body.style.backgroundPosition = `center ${rate}px`;
+        });
+
+        // Tambahan: Efek typing untuk header h1 (opsional, tapi keren)
+        const text = "Vino_Store00";
+        let index = 0;
+        const h1 = document.querySelector('header h1');
+
+        function typeWriter() {
+            if (index < text.length) {
+                h1.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 150); // Kecepatan typing
+            }
+        }
+
+        // Hapus teks awal dan mulai typing effect
+        h1.innerHTML = "";
+        typeWriter();
+    </script>
 </body>
-  </html>
+                    </html>
+                    
